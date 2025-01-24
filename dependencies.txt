@@ -1,5 +1,7 @@
+python - v3.13.1
 numpy - v2.2.1
 pandas - v2.2.3
 seaborn - v0.13.2
 matplotlib - v3.10.0
 scikit-learn - v1.6.0
+torch - v2.7.0.dev20250119+cpu
