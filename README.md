@@ -63,3 +63,13 @@ pip install -r dependencies.txt
 ```
 
 **Important Note**: This notebook was made using Python version 3.13.1. PyTorch has not been officially updated to this version yet (as of January 2025) so I installed a develepment version form PyTorch's website [here](https://pytorch.org/get-started/locally/). The version is listed in dependencies.txt but it may not install automatically with pip due to this. If you wish to install the same version I used, you may have to grab it from PyTorch's website.
+
+```
+Dependencies:
+- numpy - v2.2.1
+- pandas - v2.2.3
+- seaborn - v0.13.2
+- matplotlib - v3.10.0
+- scikit-learn - v1.6.0
+- torch - v2.7.0.dev20250124+cpu
+```
