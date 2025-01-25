@@ -88,9 +88,6 @@ GitHub Copilot:
 
 # Personal Information
 Ryan Ursell
-
 ryanursell@outlook.com
-
 Mphys Physics, Astrophysics, and Cosmology
-
 University of Portsmouth
