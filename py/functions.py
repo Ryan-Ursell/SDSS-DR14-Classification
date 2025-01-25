@@ -5,6 +5,7 @@ import seaborn as sns
 from torch import nn, optim
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
+from sklearn.utils.class_weight import compute_class_weight
 from sklearn.preprocessing import StandardScaler, LabelEncoder
 from sklearn.metrics import classification_report, confusion_matrix
 
@@ -28,7 +29,8 @@ class SDSSClassifier(nn.Module):
 def train_sdss_model(features, labels, 
                      test_ratio=0.2, val_ratio=0.2, 
                      hidden_size=64, num_epochs=20, 
-                     batch_size=32, learning_rate=0.001):
+                     batch_size=32, learning_rate=0.001,
+                     use_class_weights=False):
     """
     Train and evaluate an SDSS Classifier neural network.
 
@@ -41,6 +43,7 @@ def train_sdss_model(features, labels,
         num_epochs (int): Number of training epochs.
         batch_size (int): Batch size for training.
         learning_rate (float): Learning rate for the optimizer.
+        use_class_weights (bool): Whether to apply class weighting to address class imbalance.
 
     Returns:
         dict: A dictionary containing training and evaluation results, including the model.
@@ -71,6 +74,18 @@ def train_sdss_model(features, labels,
     label_val_tensor = torch.tensor(label_val_encoded, dtype=torch.long)
     label_test_tensor = torch.tensor(label_test_encoded, dtype=torch.long)
 
+    # Optionally compute class weights for imbalanced classes
+    if use_class_weights:
+        class_weights = compute_class_weight(
+            class_weight='balanced', 
+            classes=np.unique(label_train_encoded), 
+            y=label_train_encoded
+        )
+        class_weights_tensor = torch.tensor(class_weights, dtype=torch.float32)
+        criterion = nn.CrossEntropyLoss(weight=class_weights_tensor)
+    else:
+        criterion = nn.CrossEntropyLoss()
+
     # Prepare DataLoaders
     train_dataset = torch.utils.data.TensorDataset(features_train_tensor, label_train_tensor)
     val_dataset = torch.utils.data.TensorDataset(features_val_tensor, label_val_tensor)
@@ -86,8 +101,7 @@ def train_sdss_model(features, labels,
 
     model = SDSSClassifier(input_size, hidden_size, num_classes)
 
-    # Set up loss function and optimizer
-    criterion = nn.CrossEntropyLoss()
+    # Set up optimizer
     optimizer = optim.Adam(model.parameters(), lr=learning_rate)
 
     # Train the model
