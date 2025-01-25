@@ -147,31 +147,9 @@ def train_sdss_model(features, labels,
                                                    target_names=label_encoder.classes_, 
                                                    digits=4)
 
-    # Plot loss curves
-    plt.figure(figsize=(10, 6))
-    plt.plot(range(1, num_epochs + 1), train_loss_history, marker='o', label='Training Loss')
-    plt.plot(range(1, num_epochs + 1), val_loss_history, marker='o', label='Validation Loss')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.title('Training and Validation Loss Curves')
-    plt.legend()
-    plt.grid()
-    plt.show()
-
     # Confusion Matrix
     cm = confusion_matrix(all_labels, all_preds)
     cm_normalized = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-    fig, axes = plt.subplots(1, 2, figsize=(16, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=label_encoder.classes_, yticklabels=label_encoder.classes_, ax=axes[0])
-    sns.heatmap(cm_normalized, annot=True, fmt='.4f', cmap='Blues', xticklabels=label_encoder.classes_, yticklabels=label_encoder.classes_, ax=axes[1])
-    axes[0].set_title('Confusion Matrix (Counts)', fontsize=14)
-    axes[0].set_xlabel('Predicted', fontsize=12)
-    axes[0].set_ylabel('Actual', fontsize=12)
-    axes[1].set_title('Confusion Matrix (Normalized)', fontsize=14)
-    axes[1].set_xlabel('Predicted', fontsize=12)
-    axes[1].set_ylabel('Actual', fontsize=12)
-    plt.tight_layout()
-    plt.show()
 
     return {
         'model': model,
@@ -181,3 +159,27 @@ def train_sdss_model(features, labels,
         'confusion_matrix': cm,
         'confusion_matrix_normalized': cm_normalized
     }
+
+def plot_loss(train_loss, val_loss):
+    plt.figure(figsize=(10, 6))
+    plt.plot(range(1, len(train_loss) + 1), train_loss, marker='o', label='Training Loss')
+    plt.plot(range(1, len(val_loss) + 1), val_loss, marker='o', label='Validation Loss')
+    plt.xlabel('Epoch')
+    plt.ylabel('Loss')
+    plt.title('Training and Validation Loss Curves')
+    plt.legend()
+    plt.grid()
+    plt.show()
+
+def plot_cm(cm, cm_normalized, labels):
+    fig, axes = plt.subplots(1, 2, figsize=(16, 6))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels, ax=axes[0])
+    sns.heatmap(cm_normalized, annot=True, fmt='.4f', cmap='Blues', xticklabels=labels, yticklabels=labels, ax=axes[1])
+    axes[0].set_title('Confusion Matrix (Counts)', fontsize=14)
+    axes[0].set_xlabel('Predicted', fontsize=12)
+    axes[0].set_ylabel('Actual', fontsize=12)
+    axes[1].set_title('Confusion Matrix (Normalized)', fontsize=14)
+    axes[1].set_xlabel('Predicted', fontsize=12)
+    axes[1].set_ylabel('Actual', fontsize=12)
+    plt.tight_layout()
+    plt.show()
