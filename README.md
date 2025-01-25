@@ -77,3 +77,11 @@ Dependencies:
 # Licence
 This project is under the GNU General Public License v3.0, see [LICENCE](https://github.com/Ryan-Ursell/SDSS-DR14-Classification/blob/main/LICENSE) for more info.
 
+# Acknowledgment
+ChatGPT:
+- Provider: OpenAI
+- Description: ChatGPT was used to assist in generating and debugging portions of the codebase for this project
+
+GitHub Copilot:
+- Provider: GitHub & OpenAI
+- ChatGPT was used to assist in generating and debugging portions of the codebase for this project
