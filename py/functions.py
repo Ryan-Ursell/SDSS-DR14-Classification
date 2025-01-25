@@ -130,7 +130,7 @@ def train_sdss_model(features, labels,
         val_loss /= len(val_loader)
         val_loss_history.append(val_loss)
 
-        print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}")
+        #print(f"Epoch [{epoch+1}/{num_epochs}], Train Loss: {train_loss:.4f}, Val Loss: {val_loss:.4f}")
 
     # Test the model
     model.eval()
