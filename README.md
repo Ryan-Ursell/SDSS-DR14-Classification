@@ -62,4 +62,4 @@ cd SDSS-DR14-Classification
 pip install -r dependencies.txt
 ```
 
-**Important Note**: This notebook was made using Python version 3.13.1. PyTorch has not been updated to this version yet so I installed a develepment version form PyTorch's website [here](https://pytorch.org/get-started/locally/). The version is listed in dependencies.txt but it may not install automatically with pip due to this. If you wish to install the same version I used, you may have to grab it from PyTorch's website.
+**Important Note**: This notebook was made using Python version 3.13.1. PyTorch has not been officially updated to this version yet (as of January 2025) so I installed a develepment version form PyTorch's website [here](https://pytorch.org/get-started/locally/). The version is listed in dependencies.txt but it may not install automatically with pip due to this. If you wish to install the same version I used, you may have to grab it from PyTorch's website.
