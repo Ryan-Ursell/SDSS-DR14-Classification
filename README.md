@@ -13,7 +13,7 @@ To learn more about SDSS click [here](https://skyserver.sdss.org/dr14/en/home.as
 
 For SDSS's glossary click [here](https://live-sdss4org-dr14.pantheonsite.io/help/glossary).
 
-The data contains 18 columns and 10,000 rows. Below are the columns and what they represent:
+The data contains 18 columns and 10,000 rows. Below are the column headings and what they represent:
 
 | Column Name        | Data Type      | Description                                                                            |
 |--------------------|----------------|----------------------------------------------------------------------------------------|
