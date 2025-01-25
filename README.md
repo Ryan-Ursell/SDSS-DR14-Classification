@@ -85,3 +85,9 @@ ChatGPT:
 GitHub Copilot:
 - Provider: GitHub & OpenAI
 - ChatGPT was used to assist in generating and debugging portions of the codebase for this project
+
+# Contact
+Ryan Ursell
+ryanursell@outlook.com
+Mphys Physics, Astrophysics, and Cosmology
+University of Portsmouth
