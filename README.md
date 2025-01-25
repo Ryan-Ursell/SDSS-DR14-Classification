@@ -73,3 +73,7 @@ Dependencies:
 - scikit-learn - v1.6.0
 - torch - v2.7.0.dev20250124+cpu
 ```
+
+# Licence
+This project is under the GNU General Public License v3.0, see [LICENCE](https://github.com/Ryan-Ursell/SDSS-DR14-Classification/blob/main/LICENSE) for more info.
+
