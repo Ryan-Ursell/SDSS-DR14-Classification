@@ -51,3 +51,13 @@ This dataset was chosen due to the simplicity of the classification problem it p
 This leaves us with the 5 photometric  magnitudes (u, g, r, i, and z), the Right Ascension (ra) and Declination (dec), and the redshift. For this problem, it is unlikely that the location of the object in the sky will be relevant so both ra and dec are removed. Redshift is also removed, not because it isn't relevant but because for this task it turned out to completely dominate the models.
 
 For these reasons, I chose to only use the 5 photometric magnitudes to train both the DT and the NN.
+
+# Required Packages
+In order to run the code list in the notebooks, certain packages will need to be installed. These packages are listed in the [dependencies.txt](https://github.com/Ryan-Ursell/SDSS-DR14-Classification/blob/main/dependencies.txt) file.
+
+These can be install all at once fairly easily by cloning the repository and then using pip to install from dependencies.txt:
+```
+git clone https://github.com/Ryan-Ursell/SDSS-DR14-Classification.git
+cd SDSS-DR14-Classification
+pip install -r dependencies.txt
+```
