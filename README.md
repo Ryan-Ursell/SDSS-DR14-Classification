@@ -93,7 +93,7 @@ ChatGPT:
 
 GitHub Copilot:
 - Provider: GitHub & OpenAI
-- ChatGPT was used to assist in generating and debugging portions of the codebase for this project
+- Copilot (GPT 4o) was used to assist in generating and debugging portions of the codebase for this project
 
 # Personal Information
 Ryan Ursell
