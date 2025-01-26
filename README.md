@@ -4,7 +4,16 @@ Classification of Stars, Galaxies, and Quasars (QSO) from the Sloan Digital Sky 
 # Project Overview
 The aim of this project is to compare two different classification methods, a traditional machine learning (ML) technique and a Neural Network (NN), using real world data from SDSS DR14. Both methods will attempt to classify Stars, Galaxies, and Quasars (QSO), something that is essential in Astronomy. Often trying to distinquish between these objects can be difficult as they are all similar "point-like" objects on the night sky, so training a ML algorithm to be able to identify them is incredibly useful.
 
-The project is structured into three main notebooks. Question 1 focuses on explaining what a Decision Tree (DT) is and how it can be used to classify objects; Question 2 focuses on explaining how a Feed Forward Neural Network can be used; and Question 3 explores how changing certain parts of the NN in Question 2 can affect the model's performance.
+The project is structured into three main notebooks: 
+
+## Question 1
+This notebook focuses on explaining what a Decision Tree (DT) is and how it can be used to classify objects. It walks through the process of importing the dataset into a pandas dataframe, and then trimming the data ready for use. I then explain how to initialise the decision tree, train it, and test it to produce a classification report. Finally, I show some useful plots that can help visualise what the tree is doing, and how well it performs.
+
+## Question 2
+This notebook focuses on explaining what a Feed Forward Neural Network (FNN) is, how it can be trained to classify objects, and how successful it is with the SDSS DR14 dataset. I show step by step how the data needs to be preprocessed for use in the Neural Network (NN), and then show how the NN is defined, trained, and tested. Like in Question 1, I also show some useful plots that help visualise the model's performance. Finally, I compare the results of both the DT and the FNN.
+
+## Question 3
+This notebook explores how changing certain parts of the NN in Question 2 can affect the model's performance. I explain what happens if the ratio between the amount of training and testing data is changed, as well as how an inbalance between different classes can lead to over or underfitting. I discuss ways that the accuracy of the model can be improved, and why for this particular dataset, the accuracy was so high.
 
 # Overview of the Dataset
 The dataset used for this project comes from [Kaggle](https://www.kaggle.com/datasets/lucidlenn/sloan-digital-sky-survey/data).
