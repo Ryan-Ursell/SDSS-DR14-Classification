@@ -7,13 +7,13 @@ The aim of this project is to compare two different classification methods, a tr
 The project is structured into three main notebooks: 
 
 ## Question 1
-This notebook focuses on explaining what a Decision Tree (DT) is and how it can be used to classify objects. It walks through the process of importing the dataset into a pandas dataframe, and then trimming the data ready for use. I then explain how to initialise the decision tree, train it, and test it to produce a classification report. Finally, I show some useful plots that can help visualise what the tree is doing, and how well it performs.
+This notebook focuses on explaining what a Decision Tree (DT) is and how it can be used to classify objects. It walks through the process of importing the dataset into a pandas dataframe, and then trimming the data ready for use. I then explain how to initialise the decision tree, train it, and test it to produce a classification report. Finally, I show some useful plots that can help visualise what the tree is doing and how well it performs.
 
 ## Question 2
-This notebook focuses on explaining what a Feed Forward Neural Network (FNN) is, how it can be trained to classify objects, and how successful it is with the SDSS DR14 dataset. I show step by step how the data needs to be preprocessed for use in the Neural Network (NN), and then show how the NN is defined, trained, and tested. Like in Question 1, I also show some useful plots that help visualise the model's performance. Finally, I compare the results of both the DT and the FNN.
+This notebook focuses on explaining what a Feedforward Neural Network (FNN) is, how it can be trained to classify objects, and how successful it is with the SDSS DR14 dataset. I show step by step how the data needs to be preprocessed for use in the Neural Network (NN), and then show how the NN is defined, trained, and tested. As in Question 1, I also show some useful plots that help visualise the model's performance. Finally, I compare the results of both the DT and the FNN.
 
 ## Question 3
-This notebook explores how changing certain parts of the NN in Question 2 can affect the model's performance. I explain what happens if the ratio between the amount of training and testing data is changed, as well as how an inbalance between different classes can lead to over or underfitting. I discuss ways that the accuracy of the model can be improved, and why for this particular dataset, the accuracy was so high.
+This notebook explores how changing certain parts of the NN in Question 2 can affect the model's performance. I explain what happens if the ratio between the amount of training and testing data is changed, as well as how an imbalance between different classes can lead to over or underfitting. I discuss ways in which the accuracy of the model can be improved, and why for this particular dataset the accuracy was so high.
 
 # Overview of the Dataset
 The dataset used for this project comes from [Kaggle](https://www.kaggle.com/datasets/lucidlenn/sloan-digital-sky-survey/data).
@@ -55,23 +55,23 @@ Below are the first few rows from the dataset:
 | 1.237650e+18     | 183.870529| 0.049911  | 17.76536| 16.60272| 16.16116| 15.98233| 15.90438| 752  | 301   | 4      | 269   | 3.722370e+18     | STAR   | -0.000111 | 3306  | 54922  | 510     |
 | 1.237650e+18     | 183.883288| 0.102557  | 17.55025| 16.26342| 16.43869| 16.55492| 16.61326| 752  | 301   | 4      | 269   | 3.722370e+18     | STAR   | 0.000590  | 3306  | 54922  | 512     |
 
-This dataset was chosen due to the simplicity of the classification problem it provides. There are only three classes (Star, Galaxy or QSO) so imbalances between them won't make a huge difference to the accuracy of the model, and most of the parameters are not relevent to the problem. The class column will become the labels (i.e. what we use to test the model). We can cut down the remaining 17 features to 6 by ignoring all of the ones that describe the telescope or metadata from the observations. This is because they shouldn't have much impact on classifying the objects unless they happen to contain patterns due to errors or biases in the observations. Either way we want to exclude these so the model doesn't learn false patterns.
+This dataset was chosen due to the simplicity of the classification problem it provides. There are only three classes (Star, Galaxy or QSO) so any imbalances between them won't make a huge difference to the accuracy of the model, and most of the parameters are not relevent to the problem. The class column will become the labels (i.e. what we use to test the model). We can cut down the remaining 17 features to 6 by ignoring all of the ones that describe the telescope or metadata from the observations. This is because they shouldn't have much impact on classifying the objects unless they happen to contain patterns due to errors or biases in the observations. Either way we want to exclude these so the model doesn't learn false patterns.
 
-This leaves us with the 5 photometric  magnitudes (u, g, r, i, and z), the Right Ascension (ra) and Declination (dec), and the redshift. For this problem, it is unlikely that the location of the object in the sky will be relevant so both ra and dec are removed. Redshift is also removed, not because it isn't relevant but because for this task it turned out to completely dominate the models.
+This leaves us with the 5 photometric  magnitudes (u, g, r, i, and z), the Right Ascension (ra) and Declination (dec), and the Redshift. For this problem, it is unlikely that the location of the object in the sky will be relevant so both ra and dec are removed. Redshift is also removed, not because it isn't relevant but because for this task it turned out to completely dominate the models.
 
 For these reasons, I chose to only use the 5 photometric magnitudes to train both the DT and the NN.
 
 # Required Packages
 In order to run the code list in the notebooks, certain packages will need to be installed. These packages are listed in the [dependencies.txt](https://github.com/Ryan-Ursell/SDSS-DR14-Classification/blob/main/dependencies.txt) file.
 
-These can be install all at once fairly easily by cloning the repository and then using pip to install from dependencies.txt:
+These can be installed all at once fairly easily, by cloning the repository and then using pip to install from dependencies.txt:
 ```
 git clone https://github.com/Ryan-Ursell/SDSS-DR14-Classification.git
 cd SDSS-DR14-Classification
 pip install -r dependencies.txt
 ```
 
-**Important Note**: This notebook was made using Python version 3.13.1. PyTorch has not been officially updated to this version yet (as of January 2025) so I installed a develepment version form PyTorch's website [here](https://pytorch.org/get-started/locally/). The version is listed in dependencies.txt but it may not install automatically with pip due to this. If you wish to install the same version I used, you may have to grab it from PyTorch's website.
+**Important Note**: This notebook was made using Python version 3.13.1. PyTorch has not been officially updated to this version yet (as of January 2025) so I installed a development version form PyTorch's website [here](https://pytorch.org/get-started/locally/). The version is listed in dependencies.txt but it may not install automatically with pip because of this. If you wish to install the same version I used, you may have to grab it from PyTorch's website.
 
 ```
 Dependencies:
